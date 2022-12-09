@@ -13,3 +13,6 @@ import request from '@/utils/request'
 
 // 登录接口
 export const userLogin = obj => request.post('/auth/login', obj)
+
+// 获取管理员信息
+export const getUserInfo = _ => request.get('/auth/currentUser')

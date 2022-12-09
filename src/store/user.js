@@ -2,7 +2,7 @@
  * @Author: bzirs
  * @Date: 2022-12-08 20:08:24
  * @LastEditors: bzirs
- * @LastEditTime: 2022-12-09 08:41:10
+ * @LastEditTime: 2022-12-09 19:37:31
  * @FilePath: /interview-pc/src/store/user.js
  * @Description:
  * @

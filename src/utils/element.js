@@ -2,7 +2,7 @@
  * @Author: bzirs
  * @Date: 2022-12-08 16:42:33
  * @LastEditors: bzirs
- * @LastEditTime: 2022-12-08 22:06:45
+ * @LastEditTime: 2022-12-09 19:54:09
  * @FilePath: /interview-pc/src/utils/element.js
  * @Description:
  * @
@@ -13,12 +13,14 @@ import Vue from 'vue'
 
 import {
   Pagination,
+  Drawer,
   Dialog,
   Autocomplete,
   Dropdown,
   DropdownMenu,
   DropdownItem,
   Popconfirm,
+  Avatar,
   Menu,
   Submenu,
   MenuItem,
@@ -169,6 +171,8 @@ Vue.use(PageHeader)
 Vue.use(CascaderPanel)
 Vue.use(Popconfirm)
 Vue.use(Loading.directive)
+Vue.use(Avatar)
+Vue.use(Drawer)
 
 Vue.prototype.$loading = Loading.service
 Vue.prototype.$msgbox = MessageBox

@@ -2,7 +2,7 @@
  * @Author: bzirs
  * @Date: 2022-12-08 16:55:46
  * @LastEditors: bzirs
- * @LastEditTime: 2022-12-08 22:15:21
+ * @LastEditTime: 2022-12-09 19:57:43
  * @FilePath: /interview-pc/src/views/layout/index.vue
  * @Description:
  *
@@ -14,7 +14,7 @@
     <el-aside width="200px" class="el-aside">
       <h1 class="logo">黑马面经</h1>
       <!-- 导航父盒子 -->
-      <el-menu background-color="#313A46" text-color="#fff" router default-active="/layout/dashboard">
+      <el-menu background-color="#313A46" text-color="#fff" router :default-active="$route.path">
         <el-menu-item index="/layout/dashboard">
           <i class="el-icon-menu"></i>
           <span slot="title">数据看板</span>
@@ -30,6 +30,10 @@
     <el-container>
       <!-- 右侧顶部 -->
       <el-header>
+        <div class="user">
+          <el-avatar :size="36" :src="userInfo.avatar"></el-avatar>
+          <el-link :underline="false">{{ userInfo.name }}</el-link>
+        </div>
         <el-popconfirm title="主人~您真滴要离开我嘛~~" @confirm="toLogout">
           <i slot="reference" title="logout" class="el-icon-switch-button"></i>
         </el-popconfirm>
@@ -43,15 +47,25 @@
 </template>
 
 <script>
+import { getUserInfo } from '@/api/user'
 // import { delToken } from '@/utils/storage'
 export default {
   name: 'LayoutPage',
   components: {},
   props: {},
   data () {
-    return {}
+    return {
+      userInfo: {
+        avatar: '',
+        name: ''
+      }
+    }
   },
-  async created () {},
+  async created () {
+    const { data: { avatar, name } } = await getUserInfo()
+    this.userInfo.avatar = avatar
+    this.userInfo.name = name
+  },
   mounted () {},
   activated () {},
   updated () {},
